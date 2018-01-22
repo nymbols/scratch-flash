@@ -39,6 +39,7 @@ import flash.net.FileFilter;
 import flash.net.FileReference;
 import flash.net.FileReferenceList;
 import flash.net.LocalConnection;
+import flash.net.SharedObject;
 import flash.net.URLLoader;
 import flash.net.URLLoaderDataFormat;
 import flash.net.URLRequest;
@@ -74,7 +75,7 @@ import watchers.ListWatcher;
 
 public class Scratch extends Sprite {
 	// Version
-	public static const versionString:String = 'v458';
+	public static const versionString:String = 'v459.1';
 	public static var app:Scratch; // static reference to the app, used for debugging
 
 	// Display modes
@@ -1142,15 +1143,17 @@ public class Scratch extends Sprite {
 				'\n\nPlease do not distribute!', stage);
 	}
 
+	protected function onNewProject():void {}
+
 	protected function createNewProjectAndThen(callback:Function = null):void {
 		function clearProject():void {
 			startNewProject('', '');
 			setProjectName('Untitled');
+			onNewProject();
 			topBarPart.refresh();
 			stagePart.refresh();
 			if (callback != null) callback();
 		}
-
 		saveProjectAndThen(clearProject);
 	}
 
