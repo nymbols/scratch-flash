@@ -65,6 +65,11 @@ public class SoundPrims {
 			interp.redraw();
 		};
 		primTable["tempo"]				= function(b:*):* { return app.stagePane.tempoBPM };
+
+		//music prims
+		primTable['jingle1']			= function(b:*):* {
+			jingle(b, 1)
+		};
 	}
 
 	private function primPlaySound(b:Block):void {
@@ -187,6 +192,48 @@ public class SoundPrims {
 		var s:ScratchObj = interp.targetObj();
 		return (s != null) ? s.volume : 0;
 	}
+
+
+
+
+
+
+
+	private function jingle(b:Block, x:Number):void {
+
+		playaSection(60, 1);
+		playaSection(62, 2);
+		playaSection(64, 3);
+
+		//var ts:Array = new Array();
+		//ts[0] = [60,1];
+		//ts[1] = [62,2];
+		//ts[2] = [64,3];
+
+		//for each (var note:Array in ts)
+		//{
+		//	if (note[1] == 3)
+		//			var tempp:Number = 1;
+		//	playaSection(note[0], note[1])
+		//}
+
+
+	}
+
+	private function playaSection( key:Number, beats:Number):void {
+		var s:ScratchObj = interp.targetObj();
+		if (s == null) return;
+
+		if (interp.activeThread.firstTime) {
+			var secs:Number = beatsToSeconds(beats);
+
+			//interp.activeThread.tmpObj = playNote(s.instrument, key, secs, s);
+			interp.startTimer(secs);
+		} else {
+			interp.checkTimer();
+		}
+	}
+
 
 	// Map from a Scratch 1.4 (i.e. MIDI) instrument number to the closest Scratch 2.0 equivalent.
 	private const instrumentMap:Array = [

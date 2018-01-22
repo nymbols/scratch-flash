@@ -72,6 +72,7 @@ public class Specs {
 		[10, "More Blocks",	procedureColor],
 		[11, "Parameter",	parameterColor],
 		[12, "List",		listColor],
+		[13, "Music",       0xed1499],
 		[20, "Extension",	extensionsColor],
 	];
 
@@ -359,6 +360,21 @@ public class Specs {
 		["-"],
 		["show list %m.list",								" ", 12, "showList:"],
 		["hide list %m.list",								" ", 12, "hideList:"],
+
+		//music
+		["Add track",				            		" ", 13, "addTrack"],
+		["Change key by %n semitones",	            	" ", 13, "changeKey", 1],
+		["Add subtitles ",				            	" ", 13, "addSubtitles"],
+		["Play %n notes",				            	" ", 13, "play", 1],
+		["Time Signature ",				           		" ", 13, "timeSignature"],
+		["-"],
+		["Jingle Bells",				           		" ", 13, "jingle1"],
+		["Jingle all the way! ",				        " ", 13, "jingle2"],
+		["Oh what?! ",				           		    " ", 13, "jingle3"],
+		["On a ? ",				           		        " ", 13, "jingle4"],
+		["On a ! ",				           	        	" ", 13, "jingle5"],
+		["-"],
+
 
 		// obsolete blocks from Scratch 1.4 that may be used in older projects
 		["play drum %n for %n beats",			" ", 98, "drum:duration:elapsed:from:", 1, 0.25], // Scratch 1.4 MIDI drum
